@@ -1,24 +1,31 @@
-const express = require('express')
+const express=require('express')
 const cors = require('cors')
+const morgan = require('morgan')
 require('dotenv').config()
 
-//conexion con la base de datos
-const conect = require("./conexion")
-conect()
 
-const app = express()
+const conexion =require("./conexion")
+conexion()
 
-const port = process.env.PORT || 5000
+
+const app=express()
+
+//configuracion
+const port = process.env.PORT || 3000;
+
 
 //middlewares
 app.use(cors())
 app.use(express.json())
+app.use(morgan('dev'))
+
 
 //RUTAS
-app.use(require("./components/routes/routersTareas"))
+app.use(require("./components/routes/routesTareas"))
+app.use(require("./components/routes/routesUsuarios"))
+app.use(require("./components/routes/routesAuthUsu"))
 
 
-//Iniciar el servidor en el puerto deseado
-app.listen(port, () => {
-    console.log(`El servidor corriendo en el puerto ${port}`)
+app.listen(port,()=>{
+    console.log(`SERVIDOR ESCUCHANDO EN EL PUERTO ${port}`)
 })
