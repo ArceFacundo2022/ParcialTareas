@@ -28,6 +28,9 @@ idUser:{
     Schema.ObjectId,
     ref: "usuario",
     required: true
+},
+userName:{
+    type : String
 }
 
 

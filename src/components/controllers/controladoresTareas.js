@@ -44,6 +44,7 @@ CtrlTarea.getTareasById = async(req,res)=>{
 CtrlTarea.postTareas= async(req,res)=>{
     try {
         const idUser = req.user._id
+        const userName = req.user.usuario
         const {titulo,descripcion,estado}=req.body
 
         if (!idUser || !titulo || !descripcion || !estado){
@@ -51,9 +52,9 @@ CtrlTarea.postTareas= async(req,res)=>{
                 message: "Error al cargar la tarea"
             })
         }
-
+        console.log(userName)
         const newTareas = new Tarea({
-        idUser,titulo,descripcion,estado
+        idUser,userName,titulo,descripcion,estado
     })
 
     const tarea = await newTareas.save()

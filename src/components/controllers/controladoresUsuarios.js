@@ -1,4 +1,5 @@
 const Usuario = require("../models/modeloUsuarios")
+const Tarea = require("../models/modeloTareas")
 const bcrypt = require("bcrypt")
 
 
@@ -93,8 +94,13 @@ CtrlUsuarios.putUsuarios= async(req,res)=>{
             })
         }
         const NewContraseña = bcrypt.hashSync(contraseña, 10)
+
+        const userOld = await Usuario.findById(id)
         await Usuario.findByIdAndUpdate(id,{usuario,correo,contraseña : NewContraseña})
         const user = await Usuario.find({_id: id})
+        if(usuario != userOld.usuario){
+            await Tarea.find({idUser : id}).updateMany({userName : usuario})
+        }
 
         return res.json({
         
@@ -128,6 +134,7 @@ CtrlUsuarios.deleteUsuarios= async(req,res)=>{
         }
         await Usuario.findByIdAndUpdate(id,{isActive : false})
         const userD = await Usuario.find({_id: id})
+        await Tarea.find({idUser : id}).updateMany({isActive : false})
         return res.json(
             {
                 message:"Usuario oculto",
@@ -162,6 +169,7 @@ CtrlUsuarios.removeUsuarios= async(req,res)=>{
         }
         
         await Usuario.findByIdAndRemove(id)
+        await Tarea.find({idUser : id}).updateMany({isActive : false})
         return res.json(
             {
                 message:"Usuario Eliminada",
