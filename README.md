@@ -33,7 +33,7 @@
 ####      .Ocultar y Desabilitar a un usuario y ocultar sus tareas
 ####      .Borrar a un usuario de la base de datos y ocultar sus tareas
 
-###----------------------------------------------------------------------------------------------
+### ----------------------------------------------------------------------------------------------
 
 ####      .Subir una tarea
 ####      .Listado de todas las tareas habilitadas
@@ -118,7 +118,7 @@
 ### Mediante el metodo DELETE enviar por localhost:3000/usuarioDelete/(id de mongo del usuario) para ocultar el usuario
 ### Ademas debera colocar el token del usuario en la parte de el headers en una variable Authorization
 
-##------------------------------------------------------------------------------------------------------------------------
+## ------------------------------------------------------------------------------------------------------------------------
 
 ## Subir una tarea
 
