@@ -1,7 +1,7 @@
 {
   "name": "servidor-completo",
   "version": "1.0.0",
-  "description": "",
+  "description": "```bash\r {\r   \"usuario\": \"username\",\r   \"correo\": \"email@gmail.com\",\r   \"contraseña\": \"password\"\r }",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js"
@@ -20,5 +20,13 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArceFacundo2022/ParcialTareas.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ArceFacundo2022/ParcialTareas/issues"
+  },
+  "homepage": "https://github.com/ArceFacundo2022/ParcialTareas#readme"
 }

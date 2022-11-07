@@ -24,6 +24,7 @@ app.use(morgan('dev'))
 app.use(require("./components/routes/routesTareas"))
 app.use(require("./components/routes/routesUsuarios"))
 app.use(require("./components/routes/routesAuthUsu"))
+app.use(require("./components/routes/routesComent"))
 
 
 app.listen(port,()=>{
